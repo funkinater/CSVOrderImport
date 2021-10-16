@@ -1,0 +1,19 @@
+{
+	"ApiKey" : "[Enter API key provided by STAT],
+	"PriceSet" : "[Enter price set UID provided by STAT]",
+	"CollectionLocation" : 		
+        {
+                "ContactName": "Pharmacist",
+                "CompanyName": "Test Pharmacy",
+                "AddressLine1": "123 Main St.",
+                "AddressLine2": "",
+                "City": "Allen",
+                "State": "TX",
+                "PostalCode": "75002",
+                "Country": "USA",
+                "Comments": "Fictitious Company",
+                "Email": "pharmacist@pharmacy.com",
+                "Phone": "214-555-5555",
+                "Category": ""
+        }
+}
