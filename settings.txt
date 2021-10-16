@@ -1,5 +1,5 @@
 {
-	"ApiKey" : "[Enter API key provided by STAT],
+	"ApiKey" : "[Enter API key provided by STAT]",
 	"PriceSet" : "[Enter price set UID provided by STAT]",
 	"CollectionLocation" : 		
         {
