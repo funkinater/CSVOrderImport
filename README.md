@@ -39,7 +39,7 @@ Orders included in import file (the "Path" parameter) will be placed to STAT via
 
 ### Settings File
 
-![Alt text](/img/SettingsFile.png?raw=true)
+![Alt text](/img/Settings.png?raw=true)
 
 ### Script Output / Merge Data File
 
