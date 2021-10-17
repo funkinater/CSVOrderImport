@@ -15,6 +15,5 @@
                 "Email": "pharmacist@pharmacy.com",
                 "Phone": "214-555-5555",
                 "Category": ""
-        },
-        "MergeFile" : ".\LabelMerge.docx"
+        }
 }

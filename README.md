@@ -45,7 +45,8 @@ Orders included in the CSV file specified in the "Path" parameter will be placed
 
 ### Merge Template
 
-![Alt text](/img/MergeTemplate.png?raw=true "Optional Title")
+![Alt text](/img/MergeDocImage2.png?raw=true "Optional Title")
+![Alt text](/img/MergeDocImage.png?raw=true "Optional Title")
 
 
 
