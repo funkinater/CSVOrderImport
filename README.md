@@ -3,7 +3,7 @@
 # ImportOrdersFromCSV
 Create STAT Orders with a CSV File
 
-This script was created for tempoary use for submitting orders to STAT Overnight Delivery while a permanent integration is being developed. NOTE: This script is delivered as-is and is intended for limited use only.
+This script was created for temporary use for submitting orders to STAT Overnight Delivery while a permanent integration is being developed. NOTE: This script is delivered as-is and is intended for limited use only.
 
 ## Parameter Definitions
 
