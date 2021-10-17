@@ -13,6 +13,10 @@ This script was created for tempoary use for submitting orders to STAT Overnight
 -- PriceSet: STAT-Provided service level identifier
 -- CollectionLocation: Address that will be used as the collection address for each order placed to the API
 
+## Set API Key and Priceset Identifier
+
+Before you can start using this script, you must edit the settings file by adding the API key and priceset identifier. Both values can be obtained by request from STAT.
+
 ## Usage
 
 ```sh

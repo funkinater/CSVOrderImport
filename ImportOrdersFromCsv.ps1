@@ -50,6 +50,18 @@ class OrderReturnData {
     [string]$TrackingURL
     [string]$LabelURL
     [string]$Description
+    [string]$ContactName
+    [string]$CompanyName
+    [string]$AddressLine1
+    [string]$AddressLine2
+    [string]$City
+    [string]$State
+    [string]$PostalCode
+    [string]$Country
+    [string]$Comments
+    [string]$Email
+    [string]$Phone
+
 }
 
 [System.Collections.ArrayList]$Orders = @{}
@@ -135,13 +147,13 @@ Function PostOrderToSTAT {
 
     $orderContactDescription = ""
 
-    if (($Order.DeliveryLocation.ContactName) -eq "" -or ($Order.DeliveryLocation.ContactName -eq $null)) {
+    if (($Order.DeliveryLocation.ContactName) -eq "" -or ($null -eq $Order.DeliveryLocation.ContactName)) {
         $orderContactDescription = $Order.DeliveryLocation.CompanyName
     } else {
         $orderContactDescription = $Order.DeliveryLocation.ContactName
     }
     
-    if (($Order.Description) -eq "" -or ($Order.Description -eq $null)) {
+    if (($Order.Description) -eq "" -or ($null -eq $Order.Description)) {
         $orderContactDescription += "($($Order.Description))"
     }
 
@@ -160,11 +172,23 @@ Function PostOrderToSTAT {
         
             $content = [OrderReturnData]::new()
             $rValue = $response.Content | ConvertFrom-Json
+            $location = $rValue.DeliveryLocation
 
             $content.TrackingNumber = $rValue.TrackingNumber
             $content.TrackingURL = $rValue.TrackingURL
             $content.LabelURL = $rValue.BarcodeURL
             $content.Description = $rValue.Description
+            $content.ContactName = $location.ContactName
+            $content.CompanyName = $location.CompanyName
+            $content.AddressLine1 = $location.AddressLine1
+            $content.AddressLine2 = $location.AddressLine2
+            $content.City = $location.City
+            $content.State = $location.State
+            $content.PostalCode = $location.PostalCode
+            $content.Country = $location.Country
+            $content.Comments = $location.Comments
+            $content.Email = $location.Email
+            $content.Phone = $location.Phone
 
             $STATOrderResponses.Add($content)
 
