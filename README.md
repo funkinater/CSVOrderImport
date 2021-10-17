@@ -15,7 +15,7 @@ This script was created for tempoary use for submitting orders to STAT Overnight
 
 ## Set API Key and Priceset Identifier
 
-Before you can start using this script, you must edit the settings file by adding the API key and priceset identifier. Both values can be obtained by request from STAT.
+Before you can start using this script, you must edit the settings file by adding the API key and priceset identifier. Both values may be obtained upon request from STAT.
 
 ## Usage
 
