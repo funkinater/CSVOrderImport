@@ -1,10 +1,14 @@
 ﻿param(
-    $Path = ".\ImportExample.csv",
-    $OutputFile = ".\Output.csv",
-    $LogFile=".\log.txt",
-    $SettingsFile = ".\settings.txt"
+    $WorkingDir = ".",
+    $Path = "$WorkingDir\ImportExample.csv",
+    $OutputFile = "$WorkingDir\Output.csv",
+    $OrderErrors = "$WorkingDir\ERRORS.csv",
+    $LogFile="$WorkingDir\log.txt",
+    $SettingsFile = "$WorkingDir\settings.txt"
     )
 
+
+Write-Host "Script executed. Settings file is $SettingsFile"
 
 if(-not($Path) -or -not($OutputFile) -or -not($SettingsFile)) {Throw "You must supply a valid import, output and settings file."}
 
@@ -64,8 +68,14 @@ class OrderReturnData {
 
 }
 
+class OrderError {
+    [STATOrder]$Order
+    [string]$ErrorMessage
+}
+
 [System.Collections.ArrayList]$Orders = @{}
 [System.Collections.ArrayList]$STATOrderResponses = @{}
+[System.Collections.ArrayList]$ERRORS = @{}
 
 Function AddToLog {
     param(
@@ -73,7 +83,7 @@ Function AddToLog {
         [string]$message
     )
 
-    Add-Content $logFile "$(date)  $level  $message"
+    Add-Content $logFile "$(date)  $level  $message`r`n"
 
     if($level -eq "INFO") {
         Write-Host "$level $message" -ForegroundColor Green
@@ -198,9 +208,36 @@ Function PostOrderToSTAT {
         }
     }
     catch {
-        AddToLog -level "ERROR" -message "Exception occurred trying to post request to STAT server: $($_.Exception)"
+        [string]$errorMessage
+        if($null -ne $_.ErrorDetails.Message) {
+            $errorMessage = ($_.ErrorDetails.Message | ConvertFrom-Json).Message
+        } else {
+            $errorMessage = "Unknown error"
+        } 
+        
+        $error = [OrderError]::new()
+        $error.Order = $Order
+        $error.ErrorMessage = $errorMessage
+        $ERRORS.Add($error)
+        
+        AddToLog -level "ERROR" -message "Could not create order for $($orderContactDescription) -- $errorMessage"
     }
 }
+
+
+$logStartText = @"
+
+
+**************************************************
+
+IMPORT SESSION STARTED
+
+"@
+
+$logStartText += "$((Get-Date).ToString("yyyy-MM-dd HH:mm:ss"))`r`n`r`n**************************************************"
+
+Write-Host $logStartText
+Add-Content -Path $LogFile -Value $logStartText
 
 AddToLog -level "INFO" -message "Gathering order details..."
 
@@ -208,9 +245,29 @@ Import-Csv -Path $Path | ForEach-Object { AddOrderToArray -OrderDetails $_ } | O
 
 $Orders | ForEach-Object { PostOrderToSTAT -Order $_ } | Out-Null
 
-AddToLog -level "INFO" -message "Exporting results data to $Outputfile..."
-$STATOrderResponses | Select-Object * | Export-Csv -Path $OutputFile -NoTypeInformation
+if($STATOrderResponses.Count -gt 0) {
+    AddToLog -level "INFO" -message "Exporting results data to $Outputfile..."
+    $STATOrderResponses | Select-Object * | Export-Csv -Path $OutputFile -NoTypeInformation
+}
 
-AddToLog -level "INFO" -message "Script complete."
+If($ERRORS.Count -gt 0) {
+    AddToLog -level "INFO" -message "Exporting ERROR data to results data to $OrderErrors..."
+    ($ERRORS | ConvertTo-Json -Compress) | ConvertFrom-Json | Export-Csv -Path $OrderErrors -NoTypeInformation
+}
 
-ii $OutputFile
+AddToLog -level "INFO" -message "Script completed with $($ERRORS.Count) error(s)."
+
+
+$folderName = (Get-Date).ToString("yyyyMMdd_hh-mm-ss")
+$CompletedFolder = New-Item -ItemType Directory -Path "$WorkingDir\Watch\Completed" -Name $folderName -Force
+
+try {
+    Move-Item -Path $Path -Destination $CompletedFolder -Force
+    Move-Item -Path $LogFile -Destination $CompletedFolder -Force
+    Copy-Item -Path $OutputFile -Destination $CompletedFolder -Force
+    Move-Item -Path $OrderErrors -Destination $CompletedFolder -Force
+}
+catch {
+    Out-Null
+}
+
