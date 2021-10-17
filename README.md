@@ -44,7 +44,7 @@ Use the following syntax to run the script manually:
 
 You can generate orders by dropping your import CSV into a watched folder. This method requires slightly more setup on the front-end, but once configured it is easier than the manual method.
 
-### Configure and Initiate the Watched Folder (only needed for Option 2)
+**Configure and Initiate the Watched Folder (only needed for Option 2)**
 
 **NOTE** -- Since the watched-folder method does not support script arguments, we recommend using **C:\STATUtilities\CSVOrderImport** as the root location for the script and other project files/folders. This will prevent having to change a number of variables in the script files to reference a different location.
 
