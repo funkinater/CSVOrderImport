@@ -1,3 +1,5 @@
+![Alt text](/img/logo.jpg?raw=true "STAT Overnight Delivery")
+
 # ImportOrdersFromCSV
 Create STAT Orders with a CSV File
 
@@ -33,20 +35,20 @@ Orders included in import file (the "Path" parameter) will be placed to STAT via
 
 ### Import CSV File
 
-![Alt text](/img/ImportFile.png?raw=true "Optional Title")
+![Alt text](/img/ImportFile.png?raw=true)
 
 ### Settings File
 
-![Alt text](/img/SettingsFile.png?raw=true "Optional Title")
+![Alt text](/img/SettingsFile.png?raw=true)
 
 ### Script Output / Merge Data File
 
-![Alt text](/img/OrderOutput.png?raw=true "Optional Title")
+![Alt text](/img/OrderOutput.png?raw=true)
 
 ### Merge Template
 
-![Alt text](/img/MergeDocImage2.png?raw=true "Optional Title")
-![Alt text](/img/MergeDocImage.png?raw=true "Optional Title")
+![Alt text](/img/MergeDocImage2.png?raw=true)
+![Alt text](/img/MergeDocImage.png?raw=true)
 
 
 
