@@ -54,42 +54,42 @@ Follow these steps to create a scheduled task:
 
 1.  Open Windows Task Scheduler
 
-1.  Create a new Task
+2.  Create a new Task
 
 ![Alt text](/img/Task1.png?raw=true)
 
-1.  On the General tab, name the task, then select "Run whether user is logged on or not" and "Run with highest privileges." 
+3.  On the General tab, name the task, then select "Run whether user is logged on or not" and "Run with highest privileges." 
 
 ![Alt text](/img/Task2.png?raw=true)
 
-1.  Click the Triggers tab and select New...
+4.  Click the Triggers tab and select New...
 
-1.  Under "Begin the task," select "At log on"
+5.  Under "Begin the task," select "At log on"
 
 ![Alt text](/img/Task4.png?raw=true)
 
-1.  Click OK
+6.  Click OK
 
-1.  Click the Actions tab and select New...
+7.  Click the Actions tab and select New...
 
-1.  Under Action, select "Start a Program", then:
+8.  Under Action, select "Start a Program", then:
   1.  Enter **powershell.exe** in the Program/Script field
   1.  Enter **-executionpolicy bypass -File "C:\STATUtilities\CSVOrderImport\WatchFolder.ps1"** in the Add Arguments field
   1.  Click OK
 
 ![Alt text](/img/Task7.png?raw=true)
 
-1.  Click the Settings tab and DESELECT "Stop the task if it runs longer than..."
+9.  Click the Settings tab and DESELECT "Stop the task if it runs longer than..."
 
 ![Alt text](/img/Task8.png?raw=true)
 
-1.  Click OK
+10.  Click OK
 
-1.  If prompted, enter the password for the Windows user account and click OK
+11.  If prompted, enter the password for the Windows user account and click OK
 
 ![Alt text](/img/Task10.png?raw=true)
 
-1.  The scheduled task is now ready and will start automatically on the next reboot. You can start it manually by right-clicking the task and selecting "Run."
+12.  The scheduled task is now ready and will start automatically on the next reboot. You can start it manually by right-clicking the task and selecting "Run."
 
 ![Alt text](/img/Task9.png?raw=true)
 
