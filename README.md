@@ -73,9 +73,9 @@ Follow these steps to create a scheduled task:
 7.  Click the Actions tab and select New...
 
 8.  Under Action, select "Start a Program", then:
-  a.  Enter **powershell.exe** in the Program/Script field
-  b.  Enter **-executionpolicy bypass -File "C:\STATUtilities\CSVOrderImport\WatchFolder.ps1"** in the Add Arguments field
-  c.  Click OK
+  (a)  Enter **powershell.exe** in the Program/Script field;
+  (b)  Enter **-executionpolicy bypass -File "C:\STATUtilities\CSVOrderImport\WatchFolder.ps1"** in the Add Arguments field; and
+  (c)  Click OK
 
 ![Alt text](/img/Task7.png?raw=true)
 
