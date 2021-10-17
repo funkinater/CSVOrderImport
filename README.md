@@ -38,7 +38,7 @@ Use the following syntax to run the script manually:
 .\ImportOrdersFromCSV.ps1 -Path ".\ImportExample.csv" -OutputFile ".\Output.csv" -LogFile ".\log.txt" -SettingsFile ".\settings.txt"
 ```
 
-  **OR...**
+  **- OR -**
 
 ### Option 2
 
@@ -46,7 +46,7 @@ You can generate orders by dropping your import CSV into a watched folder. This 
 
 ### Configure and Initiate the Watched Folder (only needed for Option 2)
 
-**PLEASE NOTE** -- Since the watched-folder method does not support script arguments, we recommend using **C:\STATUtilities\CSVOrderImport** as the root location for the script and other project files/folders. This will prevent having to change a number of variables in the script files to reference a different location.
+**NOTE** -- Since the watched-folder method does not support script arguments, we recommend using **C:\STATUtilities\CSVOrderImport** as the root location for the script and other project files/folders. This will prevent having to change a number of variables in the script files to reference a different location.
 
 In order to use this method for importing data from a CSV, you must first create a task using Task Scheduler. The process for that change is detailed below.
 
