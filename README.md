@@ -25,9 +25,9 @@ Before you can start using this script, you must edit the settings file by addin
 
 ## Script Behavior
 
-Orders included in the CSV file specified in the "Path" parameter will be placed to STAT. After the script runs, the resulting output file will contain tracking numbers for successfully submitted orders, as well as tracking/label URLs and address fields for the order. 
+Orders included in import file (the "Path" parameter) will be placed to STAT via REST API. After the script runs, the resulting output file will contain tracking numbers for successfully submitted orders, as well as tracking/label URLs and address fields for the order. 
 
->The included merge file (MergeForm.docx) may be used for creating and printing shipping labels. This form is included for convenience and may be edited as desired (or you may use another method entirely for creating labels).
+>Note: The included merge file (MergeForm.docx) may be used for creating and printing shipping labels. This form is included for convenience and may be edited as desired (or you may use another method entirely for creating labels).
 
 ## Screenshots
 
