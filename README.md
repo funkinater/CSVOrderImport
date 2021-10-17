@@ -7,13 +7,13 @@ This script was created for tempoary use for submitting orders to STAT Overnight
 
 ## Parameter Definitions
 
-- Path: Location of CSV file containing order data to post
-- OutputFile: Location of CSV file returned by the script containing tracking number, tracking URL, label URL and description field of each order
-- LogFile: File containing info and error logging data
-- SettingsFile: JSON-formatted file containing configuration information required by the script, including:
--- ApiKey: STAT-Provided API key (required to place orders)
--- PriceSet: STAT-Provided service level identifier
--- CollectionLocation: Address that will be used as the collection address for each order placed to the API
+* Path: Location of CSV file containing order data to post
+* OutputFile: Location of CSV file returned by the script containing tracking number, tracking URL, label URL and description field of each order
+* LogFile: File containing info and error logging data
+* SettingsFile: JSON-formatted file containing configuration information required by the script, including:
+  * ApiKey: STAT-Provided API key (required to place orders)
+  * PriceSet: STAT-Provided service level identifier
+  * CollectionLocation: Address that will be used as the collection address for each order placed to the API
 
 ## Set API Key, Priceset Identifier and Collection Location in settings.txt
 
