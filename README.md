@@ -99,6 +99,9 @@ Follow these steps to create a scheduled task:
 
 The script will attempt to post a new order to STAT for each line in the import file. After the script is finished, the resulting output file will contain tracking numbers for successfully submitted orders, as well as tracking/label URLs and address fields for the order. *If there are any problems submitting one or more orders, the script will create a second CSV file (default name is ERRORS.csv) containing information on the orders that were rejected, along with a detailed error message for each.*
 
+>Upon completion of the order creation process, a copy of the imported CSV, the resulting output CSV, and the log file of the session will be placed in a subfolder of ".\JobHistory" named according to the current date and time. If there were errors, the JobHistory folder for this run will also contain the "ERRORS.csv" file.
+
+
 ## Creating Shipping Labels
 ---
 
