@@ -11,32 +11,33 @@ This script was created for temporary use for submitting orders to STAT Overnigh
 * ImportOrdersFromCsv.ps1: The PowerShell script that performs most core functions
 * (folder)Watch: Target folder for dragging/dropping CSV files for import using the "watched folder" method (read more below)
 * settings.txt: Contains API key, price set and collection location that the script needs in order to run
-* WatchFolder.ps1: Creates and registers an event handler using an instance of the FileSystemWatcher class; called from a scheduled task (see "Steps for Configuring and Initiating Watched Folder" section below)
+* WatchFolder.ps1: Creates and registers an event handler using an instance of the FileSystemWatcher class; called from a scheduled task (only needed for using "watched-folder" method of importing orders; see "Usage > Option 2" section below)
 
-## Parameter Definitions
+## Script Parameters
+
+These are parameters that can be used in running the import script. Note: These parameters are not available when using the "watched-folder" method.
 
 * Path: Location of CSV file containing order data to post
-* OutputFile: Location of CSV file returned by the script containing tracking number, tracking URL, label URL and description field of each order
-* LogFile: File containing info and error logging data
-* SettingsFile: JSON-formatted file containing configuration information required by the script, including:
-  * ApiKey: STAT-Provided API key (required to place orders)
-  * PriceSet: STAT-Provided service level identifier
-  * CollectionLocation: Address that will be used as the collection address for each order placed to the API
+* OutputFile: (OPTIONAL) Location of CSV file returned by the script containing tracking number, tracking URL, label URL and description field of each order. If this parameter is excluded, the file will be saved as "Output.csv" in the current working directory.
+* LogFile: (OPTIONAL) File containing info and error logging data. If this parameter is excluded, the file will be saved as "log.txt" in the current working directory.
+* SettingsFile: (OPTIONAL) JSON-formatted file containing configuration information required by the script, including API key, price set identifier and collection location. If this parameter is excluded, the file will be saved as "settings.txt" in the current working directory.
 
 ## Set API Key, Priceset Identifier and Collection Location in settings.txt
 
 IMPORTANT! Before you can use this script, you must edit the settings file by adding the API key and priceset identifier. Both values may be obtained upon request from STAT. Additionally, set CollectionLocation as appropriate.
 
-## Usage
+## Instructions for Use
 ---
 
-### Option 1
+### Option 1 - Manual import from command line
 
 Use the following syntax to run the script manually:
 
 ```sh
 .\ImportOrdersFromCSV.ps1 -Path ".\ImportExample.csv" -OutputFile ".\Output.csv" -LogFile ".\log.txt" -SettingsFile ".\settings.txt"
 ```
+
+The OutputFile, LogFile and SettingsFile parameters are optional. 
 
   **- OR -**
 
