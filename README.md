@@ -38,15 +38,15 @@ Use the following syntax to run the script manually:
 .\ImportOrdersFromCSV.ps1 -Path ".\ImportExample.csv" -OutputFile ".\Output.csv" -LogFile ".\log.txt" -SettingsFile ".\settings.txt"
 ```
 
-  **OR...**
+  **- OR -**
 
 ### Option 2
 
 You can generate orders by dropping your import CSV into a watched folder. This method requires slightly more setup on the front-end, but once configured it is easier than the manual method.
 
-### Configure and Initiate the Watched Folder (only needed for Option 2)
+**Configure and Initiate the Watched Folder (only needed for Option 2)**
 
-**PLEASE NOTE** -- Since the watched-folder method does not support script arguments, we recommend using **C:\STATUtilities\CSVOrderImport** as the root location for the script and other project files/folders. This will prevent having to change a number of variables in the script files to reference a different location.
+**NOTE** -- Since the watched-folder method does not support script arguments, we recommend using **C:\STATUtilities\CSVOrderImport** as the root location for the script and other project files/folders. This will prevent having to change a number of variables in the script files to reference a different location.
 
 In order to use this method for importing data from a CSV, you must first create a task using Task Scheduler. The process for that change is detailed below.
 
@@ -54,42 +54,42 @@ Follow these steps to create a scheduled task:
 
 1.  Open Windows Task Scheduler
 
-1.  Create a new Task
+2.  Create a new Task
 
 ![Alt text](/img/Task1.png?raw=true)
 
-1.  On the General tab, name the task, then select "Run whether user is logged on or not" and "Run with highest privileges." 
+3.  On the General tab, name the task, then select "Run whether user is logged on or not" and "Run with highest privileges." 
 
 ![Alt text](/img/Task2.png?raw=true)
 
-1.  Click the Triggers tab and select New...
+4.  Click the Triggers tab and select New...
 
-1.  Under "Begin the task," select "At log on"
+5.  Under "Begin the task," select "At log on"
 
 ![Alt text](/img/Task4.png?raw=true)
 
-1.  Click OK
+6.  Click OK
 
-1.  Click the Actions tab and select New...
+7.  Click the Actions tab and select New...
 
-1.  Under Action, select "Start a Program", then:
-  1.  Enter **powershell.exe** in the Program/Script field
-  1.  Enter **-executionpolicy bypass -File "C:\STATUtilities\CSVOrderImport\WatchFolder.ps1"** in the Add Arguments field
-  1.  Click OK
+8.  Under Action, select "Start a Program", then:
+  (a)  Enter **powershell.exe** in the Program/Script field;
+  (b)  Enter **-executionpolicy bypass -File "C:\STATUtilities\CSVOrderImport\WatchFolder.ps1"** in the Add Arguments field; and
+  (c)  Click OK
 
 ![Alt text](/img/Task7.png?raw=true)
 
-1.  Click the Settings tab and DESELECT "Stop the task if it runs longer than..."
+9.  Click the Settings tab and DESELECT "Stop the task if it runs longer than..."
 
 ![Alt text](/img/Task8.png?raw=true)
 
-1.  Click OK
+10.  Click OK
 
-1.  If prompted, enter the password for the Windows user account and click OK
+11.  If prompted, enter the password for the Windows user account and click OK
 
 ![Alt text](/img/Task10.png?raw=true)
 
-1.  The scheduled task is now ready and will start automatically on the next reboot. You can start it manually by right-clicking the task and selecting "Run."
+12.  The scheduled task is now ready and will start automatically on the next reboot. You can start it manually by right-clicking the task and selecting "Run."
 
 ![Alt text](/img/Task9.png?raw=true)
 
@@ -107,9 +107,11 @@ The included merge file (MergeForm.docx) may be used for creating and printing s
 
 ### Option 2: LabelURL Field in Output File
 
-The output file that the script generates includes a column called "LabelURL." This URL points t
+The output file that the script generates includes a column called "LabelURL." This URL points to a PDF file that can be downloaded and used as the shipping label for that specific order.
 
+### Option 3: Develop a Custom Script
 
+You can use any number of tools available to read the contents of the output CSV file to generate labels. It is critical that, in addition to containing complete address information, each label MUST include a barcode to be a valid package. The included sample merge template demonstrates how that is accomplished using merge field codes.
 
 ## Sample Screenshots
 ---
