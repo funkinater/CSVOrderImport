@@ -259,7 +259,7 @@ AddToLog -level "INFO" -message "Script completed with $($ERRORS.Count) error(s)
 
 
 $folderName = (Get-Date).ToString("yyyyMMdd_hh-mm-ss")
-$CompletedFolder = New-Item -ItemType Directory -Path "$WorkingDir\Watch\Completed" -Name $folderName -Force
+$CompletedFolder = New-Item -ItemType Directory -Path "$WorkingDir\JobHistory\Completed" -Name $folderName -Force
 
 try {
     Move-Item -Path $Path -Destination $CompletedFolder -Force
@@ -268,6 +268,6 @@ try {
     Move-Item -Path $OrderErrors -Destination $CompletedFolder -Force
 }
 catch {
-    Out-Null
+    AddToLog("ERROR","Unable to move/copy files to completed folder")
 }
 
