@@ -10,7 +10,7 @@ This script was created for temporary use for submitting orders to STAT Overnigh
 
 * ImportOrdersFromCsv.ps1: The PowerShell script that performs most core functions
 * (folder)Watch: Target folder for dragging/dropping CSV files for import using the "watched folder" method (read more below)
-* settings.txt: Contains API key, price set and collection location that the script needs in order to run
+* Settings.txt: Contains API key, price set and collection location that the script needs in order to run
 * WatchFolder.ps1: Creates and registers an event handler using an instance of the FileSystemWatcher class; called from a scheduled task (only needed for using "watched-folder" method of importing orders; see "Usage > Option 2" section below)
 
 ## Script Parameters
