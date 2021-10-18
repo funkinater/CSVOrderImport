@@ -107,9 +107,11 @@ The included merge file (MergeForm.docx) may be used for creating and printing s
 
 ### Option 2: LabelURL Field in Output File
 
-The output file that the script generates includes a column called "LabelURL." This URL points t
+The output file that the script generates includes a column called "LabelURL." This URL points to a PDF file that can be downloaded and used as the shipping label for that specific order.
 
+### Option 3: Develop a Custom Script
 
+You can use any number of tools available to read the contents of the output CSV file to generate labels. It is critical that, in addition to containing complete address information, each label MUST include a barcode to be a valid package. The included sample merge template demonstrates how that is accomplished using merge field codes.
 
 ## Sample Screenshots
 ---
