@@ -11,7 +11,7 @@ This script was created for temporary use for submitting orders to STAT Overnigh
 * ImportOrdersFromCsv.ps1: The PowerShell script that performs most core functions
 * (folder)Watch: Target folder for dragging/dropping CSV files for import using the "watched folder" method (read more below)
 * Settings.txt: Contains API key, price set and collection location that the script needs in order to run
-* WatchFolder.ps1: Creates and registers an event handler using an instance of the FileSystemWatcher class; called from a scheduled task (only needed for using "watched-folder" method of importing orders; see "Usage > Option 2" section below)
+* WatchFolder.ps1: Creates and registers an event handler using an instance of the FileSystemWatcher class; called from a scheduled task (only needed for using "watched-folder" method of importing orders; see "Instructions for Use | Option 2" section below)
 
 ## Script Parameters
 
@@ -45,9 +45,9 @@ The OutputFile, LogFile and SettingsFile parameters are optional.
 
 You can generate orders by dropping your import CSV into a watched folder. This method requires slightly more setup on the front-end, but once configured it is easier than the manual method.
 
-**Configure and Initiate the Watched Folder (only needed for Option 2)**
+**Configure and Initiate the Watched Folder (*required for Option 2 to work properly*)**
 
-**NOTE** -- Since the watched-folder method does not support script arguments, we recommend using **C:\STATUtilities\CSVOrderImport** as the root location for the script and other project files/folders. This will prevent having to change a number of variables in the script files to reference a different location.
+**NOTE** -- Since the watched-folder method does not support script arguments, we recommend using **C:\STATUtilities\CSVOrderImport** as the root location for the script and its related project files and folders. This will prevent having to change certain variables in the script files.
 
 In order to use this method for importing data from a CSV, you must first create a task using Task Scheduler. The process for that change is detailed below.
 
