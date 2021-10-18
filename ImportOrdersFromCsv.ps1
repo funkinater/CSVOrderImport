@@ -163,7 +163,7 @@ Function PostOrderToSTAT {
         $orderContactDescription = $Order.DeliveryLocation.ContactName
     }
     
-    if (($Order.Description) -eq "" -or ($null -eq $Order.Description)) {
+    if (-not ($Order.Description) -eq "" -and -not ($null -eq $Order.Description)) {
         $orderContactDescription += "($($Order.Description))"
     }
 
