@@ -41,13 +41,13 @@ The OutputFile, LogFile and SettingsFile parameters are optional.
 
   **- OR -**
 
-### Option 2
+### Option 2 - Watched Folder Method
 
 You can generate orders by dropping your import CSV into a watched folder. This method requires slightly more setup on the front-end, but once configured it is easier than the manual method.
 
 **Configure and Initiate the Watched Folder (*required for Option 2 to work properly*)**
 
-**NOTE** -- Since the watched-folder method does not support script arguments, we recommend using **C:\STATUtilities\CSVOrderImport** as the root location for the script and its related project files and folders. This will prevent having to change certain variables in the script files.
+**NOTE**  Since the watched-folder method does not support script arguments, we recommend using **C:\STATUtilities\CSVOrderImport** as the root location for the script and its related project files and folders. This will prevent having to change location variables in the script files.
 
 In order to use this method for importing data from a CSV, you must first create a task using Task Scheduler. The process for that change is detailed below.
 
