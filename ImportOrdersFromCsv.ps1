@@ -176,7 +176,7 @@ Function PostOrderToSTAT {
 
     try {
 
-        $response = Invoke-WebRequest -Uri $createOrderUrl -Method POST -Body $OrderJson -ContentType "application/json" -Headers $headers
+        $response = Invoke-WebRequest -Uri $createOrderUrl -Method POST -Body $OrderJson -ContentType "application/json" -Headers $headers -UseBasicParsing
 
         if($response.StatusCode -eq 200) {
         
